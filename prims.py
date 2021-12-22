@@ -1,6 +1,6 @@
 import sys
 
-def printMST(parent):
+def printSolution(parent):
     print("Edge \tWeight")
     for i in range(1, V):
         print(parent[i], "-", i, "\t", graph[i][parent[i]])
@@ -15,7 +15,7 @@ def mindist(dist, sptSet):
     return min_index
 
 
-def primMST():
+def prims():
     dist = [sys.maxsize] * V
     dist[0] = 0
     sptSet = [False] * V
@@ -28,7 +28,7 @@ def primMST():
             if graph[u][v] > 0 and sptSet[v] == False and dist[v] > graph[u][v]:
                 dist[v] = graph[u][v]
                 parent[v] = u
-    printMST(parent)
+    printSolution(parent)
 
 
 V = 5
@@ -37,4 +37,4 @@ graph = [[0, 2, 0, 6, 0],
          [0, 3, 0, 0, 7],
          [6, 8, 0, 0, 9],
          [0, 5, 7, 9, 0]]
-primMST()
+prims()
