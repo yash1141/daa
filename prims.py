@@ -21,10 +21,10 @@ class Graph():
     def primMST(self):
         dist = [sys.maxsize] * self.V
         parent = [None] * self.V
-        dist[0] = 0
+        dist[0] = 0 
         sptSet = [False] * self.V
         parent[0] = -1
-        for cout in range(self.V):
+        for _ in range(self.V):
             u = self.mindist(dist, sptSet)
             sptSet[u] = True
             for v in range(self.V):
@@ -39,5 +39,4 @@ g.graph = [[0, 2, 0, 6, 0],
            [0, 3, 0, 0, 7],
            [6, 8, 0, 0, 9],
            [0, 5, 7, 9, 0]]
-
 g.primMST()
